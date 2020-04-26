@@ -33,7 +33,7 @@ public class PrinterUtil {
                     );
                 }
         );
-        builder.append(String.format("Total Card Discount: %1$.2f", shoppingCart.getTotalDiscount()));
+        builder.append(String.format("Total Cart Discount: %1$.2f", shoppingCart.getTotalDiscount()));
 
         System.out.println(builder.toString());
 

@@ -1,6 +1,6 @@
 package com.aleyla.shopping.controller;
 
-import com.aleyla.shopping.dto.CardProduct;
+import com.aleyla.shopping.dto.CartProduct;
 import com.aleyla.shopping.model.Campaign;
 import com.aleyla.shopping.model.Coupon;
 import com.aleyla.shopping.model.ShoppingCart;
@@ -9,18 +9,18 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("card/v1")
-public class ShoppingCardController {
+@RequestMapping("cart/v1")
+public class ShoppingCartController {
 
     private ShoppingCart shoppingCart;
 
-    public ShoppingCardController(ShoppingCart shoppingCart) {
+    public ShoppingCartController(ShoppingCart shoppingCart) {
         this.shoppingCart = shoppingCart;
     }
 
     @PostMapping
-    public void addProduct(@RequestBody CardProduct cardProduct) {
-        shoppingCart.addProduct(cardProduct.getProduct(), cardProduct.getQuantity());
+    public void addProduct(@RequestBody CartProduct cartProduct) {
+        shoppingCart.addProduct(cartProduct.getProduct(), cartProduct.getQuantity());
     }
 
     @PostMapping(path = "applyDiscounts")

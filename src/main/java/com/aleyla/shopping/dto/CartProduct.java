@@ -2,11 +2,11 @@ package com.aleyla.shopping.dto;
 
 import com.aleyla.shopping.model.Product;
 
-public class CardProduct {
+public class CartProduct {
     private Product product;
     private Integer quantity;
 
-    public CardProduct(Product product, Integer quantity) {
+    public CartProduct(Product product, Integer quantity) {
         this.product = product;
         this.quantity = quantity;
     }
