@@ -19,7 +19,7 @@ public class ShoppingCardController {
     }
 
     @PostMapping
-    public void save(@RequestBody CardProduct cardProduct) {
+    public void addProduct(@RequestBody CardProduct cardProduct) {
         shoppingCart.addProduct(cardProduct.getProduct(), cardProduct.getQuantity());
     }
 
