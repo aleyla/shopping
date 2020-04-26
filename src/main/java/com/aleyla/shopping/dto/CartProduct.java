@@ -1,6 +1,6 @@
 package com.aleyla.shopping.dto;
 
-import com.aleyla.shopping.model.Product;
+import com.aleyla.shopping.core.Product;
 
 public class CartProduct {
     private Product product;

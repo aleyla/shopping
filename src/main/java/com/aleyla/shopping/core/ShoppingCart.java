@@ -1,4 +1,4 @@
-package com.aleyla.shopping.model;
+package com.aleyla.shopping.core;
 
 
 import com.aleyla.shopping.printer.PrinterUtil;
@@ -18,6 +18,8 @@ public class ShoppingCart {
     private double totalAmount;
     private double deliveryCost;
 
+    DeliveryCostCalculator deliveryCostCalculator;
+
     public void addProduct(Product product, Integer quantity) {
         if (products.containsKey(product)) {
             Integer oldQuantity = products.get(product);
@@ -29,8 +31,10 @@ public class ShoppingCart {
                 products.put(product, quantity + oldQuantity);
             }
         } else {
-            products.put(product, quantity);
-            totalAmount += quantity * product.getPrice();
+            if (quantity > 0) {
+                products.put(product, quantity);
+                totalAmount += quantity * product.getPrice();
+            }
         }
 
     }

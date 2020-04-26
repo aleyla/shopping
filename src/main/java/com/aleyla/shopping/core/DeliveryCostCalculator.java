@@ -1,4 +1,4 @@
-package com.aleyla.shopping.model;
+package com.aleyla.shopping.core;
 
 import java.util.Map;
 
@@ -16,6 +16,10 @@ public class DeliveryCostCalculator {
 
     public double calculateFor(ShoppingCart cart) {
         Map<Product, Integer> products = cart.getProducts();
+
+        if(products.isEmpty())
+            return 0;
+
         long numberOfDelivery = getNumberOfDelivery(products);
         long numberOfProducts = getNumberOfProducts(products);
         double totalDeliveryCost = getDeliveryCost(numberOfDelivery) + getProductCost(numberOfProducts) + fixedCost;
@@ -36,7 +40,7 @@ public class DeliveryCostCalculator {
     }
 
     private long getNumberOfProducts(Map<Product, Integer> products) {
-        return products.values().stream().reduce(0, Integer::sum);
+        return products.keySet().size();
     }
 
 

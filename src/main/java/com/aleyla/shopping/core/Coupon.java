@@ -1,21 +1,21 @@
-package com.aleyla.shopping.model;
+package com.aleyla.shopping.core;
 
 import com.aleyla.shopping.enums.DiscountType;
 
 public class Coupon extends DiscountBase {
 
-    private Double minAmount;
+    private double minAmount;
 
-    public Coupon(Double minAmount, Double discount, DiscountType type) {
+    public Coupon(double minAmount, double discount, DiscountType type) {
         super(discount, type);
         this.minAmount = minAmount;
     }
 
-    public Double getMinAmount() {
+    public double getMinAmount() {
         return minAmount;
     }
 
-    public void setMinAmount(Double minAmount) {
+    public void setMinAmount(double minAmount) {
         this.minAmount = minAmount;
     }
 

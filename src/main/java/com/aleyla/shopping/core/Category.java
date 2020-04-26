@@ -1,4 +1,4 @@
-package com.aleyla.shopping.model;
+package com.aleyla.shopping.core;
 
 
 import java.util.Objects;

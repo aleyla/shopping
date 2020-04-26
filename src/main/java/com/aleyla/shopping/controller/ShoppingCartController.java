@@ -1,9 +1,9 @@
 package com.aleyla.shopping.controller;
 
 import com.aleyla.shopping.dto.CartProduct;
-import com.aleyla.shopping.model.Campaign;
-import com.aleyla.shopping.model.Coupon;
-import com.aleyla.shopping.model.ShoppingCart;
+import com.aleyla.shopping.core.Campaign;
+import com.aleyla.shopping.core.Coupon;
+import com.aleyla.shopping.service.ShoppingCartService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,30 +12,32 @@ import java.util.List;
 @RequestMapping("cart/v1")
 public class ShoppingCartController {
 
-    private ShoppingCart shoppingCart;
 
-    public ShoppingCartController(ShoppingCart shoppingCart) {
-        this.shoppingCart = shoppingCart;
+    private ShoppingCartService shoppingCartService;
+
+
+    public ShoppingCartController(ShoppingCartService shoppingCartService) {
+        this.shoppingCartService = shoppingCartService;
     }
 
     @PostMapping
     public void addProduct(@RequestBody CartProduct cartProduct) {
-        shoppingCart.addProduct(cartProduct.getProduct(), cartProduct.getQuantity());
+        shoppingCartService.addProduct(cartProduct);
     }
 
     @PostMapping(path = "applyDiscounts")
     public void applyDiscounts(@RequestBody List<Campaign> campaigns) {
-        shoppingCart.applyDiscounts(campaigns);
+        shoppingCartService.applyDiscounts(campaigns);
     }
 
     @PostMapping(path = "applyCoupon")
     public void applyCoupon(@RequestBody Coupon coupon) {
-        shoppingCart.applyCoupon(coupon);
+        shoppingCartService.applyCoupon(coupon);
     }
 
     @GetMapping
     public String print() {
-        return shoppingCart.print();
+        return shoppingCartService.print();
     }
 
 }

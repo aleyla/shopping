@@ -1,4 +1,6 @@
-package com.aleyla.shopping.model;
+package com.aleyla.shopping.core;
+
+import java.util.Objects;
 
 public class Product {
 
@@ -41,4 +43,18 @@ public class Product {
     }
 
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Product product = (Product) o;
+        return Double.compare(product.price, price) == 0 &&
+                Objects.equals(title, product.title) &&
+                Objects.equals(category, product.category);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(title, price, category);
+    }
 }

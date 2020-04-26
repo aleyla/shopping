@@ -1,4 +1,4 @@
-package com.aleyla.shopping.model;
+package com.aleyla.shopping.core;
 
 import com.aleyla.shopping.enums.DiscountType;
 
@@ -12,7 +12,7 @@ public class Campaign extends DiscountBase {
 
     private Long minQuantity;
 
-    public Campaign(Category category, Long minQuantity, Double discount, DiscountType type) {
+    public Campaign(Category category, Long minQuantity, double discount, DiscountType type) {
         super(discount, type);
         this.category = category;
         this.minQuantity = minQuantity;
