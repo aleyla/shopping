@@ -33,7 +33,7 @@ public class PrinterUtil {
                     );
                 }
         );
-        builder.append(String.format("Total Cart Amount: %1$.2f \t Discount: %2$.2f \t Delivery Cost: %3$.2f", shoppingCart.getTotalAmount(), shoppingCart.getTotalDiscount() ,shoppingCart.getDeliveryCost()));
+        builder.append(String.format("Total Cart Amount: %1$.2f \t Discount: %2$.2f \t Delivery Cost: %3$.2f", shoppingCart.getTotalAmount(), shoppingCart.getTotalDiscount(), shoppingCart.getDeliveryCost()));
 
         System.out.println(builder.toString());
 

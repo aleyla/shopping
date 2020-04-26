@@ -18,8 +18,6 @@ public class ShoppingCart {
     private double totalAmount;
     private double deliveryCost;
 
-    DeliveryCostCalculator deliveryCostCalculator;
-
     public void addProduct(Product product, Integer quantity) {
         if (products.containsKey(product)) {
             Integer oldQuantity = products.get(product);

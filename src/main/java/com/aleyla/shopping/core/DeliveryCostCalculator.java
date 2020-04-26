@@ -17,7 +17,7 @@ public class DeliveryCostCalculator {
     public double calculateFor(ShoppingCart cart) {
         Map<Product, Integer> products = cart.getProducts();
 
-        if(products.isEmpty())
+        if (products.isEmpty())
             return 0;
 
         long numberOfDelivery = getNumberOfDelivery(products);
